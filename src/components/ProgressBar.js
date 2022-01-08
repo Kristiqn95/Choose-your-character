@@ -47,6 +47,15 @@ export default class ProgressBar extends Container {
   }
 
   /**
+   * @readonly
+   * @memberof ProgressBar
+   * @returns {PIXI.Graphics}
+   */
+  get bar() {
+    return this._bar;
+  }
+
+  /**
    * @private
    */
   _createBackground() {
