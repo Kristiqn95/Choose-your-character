@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 export default class ProgressBar extends Container {
   /**
-   * @param {String} label - The label which should be visualized in the progressbar 
+   * @param {String} label - The label which should be visualized in the progressbar
    * @param {Number} max - The maximum value the progressbar value can be
    * @param {Number} value - The starting value of the progressbar
    * @param {Number} width - The width of the progressbar's graphics and containers
@@ -23,6 +23,7 @@ export default class ProgressBar extends Container {
     this._badge = null;
 
     this._createBackground();
+    this._createBar();
     this._createBadge();
 
     this.set({ value });
@@ -30,7 +31,10 @@ export default class ProgressBar extends Container {
 
   set({ value }) {
     this._value = value;
-    this._badge.getChildByName('value').text = `${this._label.toUpperCase()}: ${this._value}`;
+    this._badge.getChildByName("value").text = `${this._label.toUpperCase()}: ${
+      this._value
+    }`;
+    gsap.to(this._bar, { width: this._value, duration: 0.5 });
   }
 
   /**
@@ -58,12 +62,30 @@ export default class ProgressBar extends Container {
   /**
    * @private
    */
+  _createBar() {
+    this._bar = new Graphics();
+    this._bar.beginFill(0x000000);
+    this._bar.drawRect(0, 0, this._value, 25);
+    this._bar.endFill();
+    this._bar.alpha = 0.1;
+    this._bar.x = -this.width / 2;
+    this.addChild(this._bar);
+  }
+
+  /**
+   * @private
+   */
   _createBadge() {
     this._badge = new Container();
-    const text = new Text(`${this._label.toUpperCase()}: ${this._value}`, { fontSize: 11, fill: 0x000000, align: 'center', fontWeight: '700' });
-    text.name = 'value';
+    const text = new Text(`${this._label.toUpperCase()}: ${this._value}`, {
+      fontSize: 11,
+      fill: 0x000000,
+      align: "center",
+      fontWeight: "700",
+    });
+    text.name = "value";
     text.anchor.set(0.5, 1);
-    this._badge.addChild(text)
+    this._badge.addChild(text);
     this.addChild(this._badge);
   }
 }
