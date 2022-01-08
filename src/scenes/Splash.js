@@ -1,6 +1,6 @@
 import Assets from '../core/AssetManager';
 import Scene from './Scene';
-import { Text } from 'pixi.js';
+import { Text } from 'pixi.js-legacy';
 import config from '../config';
 
 export default class Splash extends Scene {
@@ -27,6 +27,12 @@ export default class Splash extends Scene {
   preload() {
     const images = {
       logo: Assets.images.logo,
+      fire: Assets.images.fire,
+      arrow: Assets.images.arrow,
+      rocket1: Assets.images['rocket-1'],
+      rocket2: Assets.images['rocket-2'],
+      rocket3: Assets.images['rocket-3'],
+      rocket4: Assets.images['rocket-4'],
     };
     const sounds = {
       
