@@ -1,4 +1,4 @@
-import { Container, Graphics, Text } from "pixi.js";
+import { Container, Graphics, Text } from "pixi.js-legacy";
 import gsap from "gsap";
 
 export default class ProgressBar extends Container {

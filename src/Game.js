@@ -1,6 +1,6 @@
 import Splash from './scenes/Splash';
 import Play from './scenes/Play';
-import { Container } from 'pixi.js';
+import { Container } from 'pixi.js-legacy';
 import fire from './static/fire.json';
 import Assets from './core/AssetManager';
 

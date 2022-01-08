@@ -1,4 +1,4 @@
-import { Sprite, Texture } from "pixi.js";
+import { Sprite, Texture } from "pixi.js-legacy";
 import gsap from "gsap";
 
 export default class Arrow extends Sprite {

@@ -1,4 +1,4 @@
-import { Container } from "pixi.js";
+import { Container } from "pixi.js-legacy";
 import ProgressBar from "./ProgressBar";
 
 export default class Stats extends Container {
